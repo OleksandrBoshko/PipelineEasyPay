@@ -6,11 +6,9 @@ pipeline {
         skipDefaultCheckout()
     }
     stages {
-	stage("BUILD: Build by gradle"){
-	    agent {
-  	    	label "${BUILD}";
-	    }	
-	    steps {
+	stage('gradle'){
+		 agent { label 'gradle' }    
+	steps {
 		sh './build.sh'
 	    }    
 	} 
