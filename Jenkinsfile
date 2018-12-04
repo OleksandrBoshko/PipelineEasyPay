@@ -11,7 +11,7 @@ pipeline {
   	    	label "${BUILD}";
 	    }	
 	    steps {
-		sh('build.sh')
+		sh './build.sh'
 	    }    
 	} 
         stage("One big stage") {
