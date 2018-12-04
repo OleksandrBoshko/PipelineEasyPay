@@ -6,18 +6,18 @@ pipeline {
         skipDefaultCheckout()
     }
     stages {
-	stage("BUILD: Build by gradle"){
+/*	stage("BUILD: Build by gradle"){
 	    agent {
   	    	label "${BUILD}";
 	    }	
 	    steps {
 		sh('build.sh')
 	    }    
-	}
-        stage("ONE: One big stage") {
-            agent {
+	} */
+        stage(/*"ONE:*/ One big stage") {
+            /* agent {
 	    	label "$ONE";
-	    }
+	    }  */
             steps {
                 sh "sudo service postgresql reload"
                 sh "sudo -u postgres psql postgres -c 'DROP DATABASE easypay_db;'"
