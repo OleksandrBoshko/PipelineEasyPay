@@ -6,14 +6,14 @@ pipeline {
         skipDefaultCheckout()
     }
     stages {
-/*	stage("BUILD: Build by gradle"){
+	stage("BUILD: Build by gradle"){
 	    agent {
   	    	label "${BUILD}";
 	    }	
 	    steps {
 		sh('build.sh')
 	    }    
-	} */
+	} 
         stage("One big stage") {
             steps {
                 sh "sudo service postgresql reload"
