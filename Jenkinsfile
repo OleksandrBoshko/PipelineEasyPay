@@ -14,10 +14,7 @@ pipeline {
 		sh('build.sh')
 	    }    
 	} */
-        stage(/*"ONE:*/ One big stage") {
-            /* agent {
-	    	label "$ONE";
-	    }  */
+        stage(One big stage") {
             steps {
                 sh "sudo service postgresql reload"
                 sh "sudo -u postgres psql postgres -c 'DROP DATABASE easypay_db;'"
