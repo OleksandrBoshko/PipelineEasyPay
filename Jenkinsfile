@@ -6,8 +6,10 @@ pipeline {
         skipDefaultCheckout()
     }
     stages {
-	stage('gradle'){
-		 agent { label 'gradle' }    
+	stage("NODE: Restart Containers") {
+            agent {
+                label "${NODE}";
+            }
 	steps {
 		sh './build.sh'
 	    }    
