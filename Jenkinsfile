@@ -110,13 +110,13 @@ pipeline {
         }
         post {
             failure {
-                mail subject: "${currentBuild.fullDisplayName} WAS NOT DEPLOYED",
-                     body: "${env.BUILD_URL}",
+                mail subject: APP WAS NOT DEPLOYED",
+                     body: "FAILURE",
                      to: 'who@gmail.com'
                 }
             success {
-                mail subject: "${currentBuild.fullDisplayName} WAS DEPLOYED",
-                     body: "${env.BUILD_URL}",
+                mail subject: "APP WAS DEPLOYED",
+                     body: "OK",
                      to: 'who@gmail.com'
                 }
             always {
