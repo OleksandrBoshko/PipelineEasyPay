@@ -108,5 +108,12 @@ pipeline {
                 sh "sudo systemctl restart tomcat"
             }
         }
+        post {
+            failure {
+                
+                always {
+                    deleteDir()
+                }
+            }
     }
 }
