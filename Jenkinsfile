@@ -1,30 +1,22 @@
 pipeline {
-    agent none
+    agent {
+        label 'master'  
+    }
 
     stages {
-        stage('SCM') {
-            agent { 
-                node { 
-                    label 'master'
-                }
-            }
+        stage("SCM") {
             steps {
                 checkout scm
             }
         }
         stage("Build") {
-            agent {
-                node {
-                    label 'master'
-                }
-            }
-	        steps {
+            steps {
                 sh 'gradle clean build -x test'
 	        }    
 	    }
     } 
-        post {
-            failure {
+    post {
+        failure {
                 mail subject: "APP WAS NOT DEPLOYED",
                     body: "FAILURE",
                     to: 'who@gmail.com'
