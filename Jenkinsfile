@@ -107,7 +107,10 @@ pipeline {
             steps {
                 sh "sudo systemctl restart tomcat"
             }
-            post {
+        }
+    }
+
+    post {
                 failure {
                     mail subject: "APP WAS NOT DEPLOYED",
                         body: "FAILURE",
@@ -121,7 +124,5 @@ pipeline {
                 always {
                     deleteDir()
                 }
-            }
-        }
     }
 }
