@@ -110,7 +110,7 @@ pipeline {
         }
         post {
             failure {
-                mail subject: APP WAS NOT DEPLOYED",
+                mail subject: "APP WAS NOT DEPLOYED",
                      body: "FAILURE",
                      to: 'who@gmail.com'
                 }
