@@ -18,7 +18,7 @@ pipeline {
             }
             steps {
 
-                sh 'tomcat_clean.sh'
+                sh '/home/boshko/Devops/PipelineEasyPay/tomcat_clean.sh'
 /*
                 if (fileExists('/opt/tomcat/webapps/ROOT.war')) {
                     echo 'Yes'
