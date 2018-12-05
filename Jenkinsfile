@@ -1,19 +1,37 @@
 pipeline {
+    agent none
+/*
     agent {
         label 'master'
     }
     options {
         skipDefaultCheckout()
     }
+*/
+
     stages {
-	stage("NODE: Restart Containers") {
+        stage("Tomcat clean") {
             agent {
-                label "${NODE}";
+                node {
+                    label 'master'
+                }
             }
-	steps {
-		sh './build.sh'
-	    }    
-	} 
+            steps {
+                sh 'if [ -d /opt/tomcat/webapps/ROOT ]; then sudo rm -rf /opt/tomcat/webapps/ROOT fi'
+                sh 'if [ -f /opt/tomcat/webapps/ROOT.war ]; then sudo rm -f /opt/tomcat/webapps/ROOT.war fi'
+            }    
+        }
+	    stage("Gradle build") {
+            agent {
+                node {
+                    label 'master'
+                }
+            }
+	        steps {
+                sh 'cd /var/lib/jenkins/workspace/EasyPay'
+                sh 'gradle clean buil -x test'
+	        }    
+	    } 
         stage("One big stage") {
             steps {
                 sh "sudo service postgresql reload"
@@ -27,4 +45,3 @@ pipeline {
         }
     }
 }
-
