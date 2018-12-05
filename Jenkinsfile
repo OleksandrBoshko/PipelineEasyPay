@@ -18,8 +18,8 @@ pipeline {
             }
             steps {
 
-                if (fileExists('/opt/tomcat/webapps/ROOT')) {
-                   deleteDir ('/opt/tomcat/webapps/ROOT')
+                if (fileExists("/opt/tomcat/webapps/ROOT")) {
+                   deleteDir ("/opt/tomcat/webapps/ROOT")
                 } else {
                    echo 'FILE /opt/tomcat/webapps/ROOT NOT EXIST'
                 }
