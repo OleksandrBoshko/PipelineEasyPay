@@ -39,7 +39,7 @@ pipeline {
             }
 	        steps {
                 sh 'cd /var/lib/jenkins/workspace/PipelineEasyPay_master'
-                sh 'gradle clean buil -x test'
+                sh 'sudo gradle clean build -x test'
 	        }    
 	    } 
         stage("Drop database") {
