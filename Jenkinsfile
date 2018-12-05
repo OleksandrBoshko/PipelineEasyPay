@@ -10,6 +10,20 @@ pipeline {
 */
 
     stages {
+        stage('Deploy') {
+            agent { 
+                node { 
+                    label 'master'
+                }
+            }
+            options {
+                retry(5)
+                timestamps()
+            }
+            steps {
+                checkout scm
+            }
+        }
         stage("Tomcat clean") {
             agent {
                 node {
