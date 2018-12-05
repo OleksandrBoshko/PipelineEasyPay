@@ -18,10 +18,10 @@ pipeline {
             }
             steps {
 
-                if (fileExists("/opt/tomcat/webapps/ROOT")) {
-                   deleteDir ("/opt/tomcat/webapps/ROOT")
+                if (fileExists('/opt/tomcat/webapps/ROOT')) {
+                    echo 'Yes'
                 } else {
-                   echo 'FILE /opt/tomcat/webapps/ROOT NOT EXIST'
+                    echo 'No'
                 }
 /*
                 sh 'if [ -d /opt/tomcat/webapps/ROOT ]; then sudo rm -rf /opt/tomcat/webapps/ROOT fi'
