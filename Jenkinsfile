@@ -110,11 +110,18 @@ pipeline {
         }
         post {
             failure {
-                
-                always {
-                    deleteDir()
+                mail subject: "${currentBuild.fullDisplayName} WAS NOT DEPLOYED",
+                     body: "${env.BUILD_URL}",
+                     to: 'who@gmail.com'
                 }
-            }
+            success {
+                mail subject: "${currentBuild.fullDisplayName} WAS DEPLOYED",
+                     body: "${env.BUILD_URL}",
+                     to: 'who@gmail.com'
+                }
+            always {
+                deleteDir()
+                }
         }
     }
 }
