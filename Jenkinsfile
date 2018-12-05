@@ -107,21 +107,21 @@ pipeline {
             steps {
                 sh "sudo systemctl restart tomcat"
             }
-        }
-        post {
-            failure {
-                mail subject: "APP WAS NOT DEPLOYED",
-                     body: "FAILURE",
-                     to: 'who@gmail.com'
+            post {
+                failure {
+                    mail subject: "APP WAS NOT DEPLOYED",
+                        body: "FAILURE",
+                        to: 'who@gmail.com'
                 }
-            success {
-                mail subject: "APP WAS DEPLOYED",
-                     body: "OK",
-                     to: 'who@gmail.com'
+                success {
+                    mail subject: "APP WAS DEPLOYED",
+                        body: "OK",
+                        to: 'who@gmail.com'
                 }
-            always {
-                deleteDir()
+                always {
+                    deleteDir()
                 }
+            }
         }
     }
 }
