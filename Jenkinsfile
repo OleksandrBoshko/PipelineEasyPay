@@ -19,9 +19,9 @@ pipeline {
             steps {
 
                 if (fileExists('/opt/tomcat/webapps/ROOT')) {
-                    sudo rm -rf /opt/tomcat/webapps/ROOT
+                   sh 'sudo rm -rf /opt/tomcat/webapps/ROOT'
                 } else {
-                    echo 'FILE /opt/tomcat/webapps/ROOT NOT EXIST'
+                   echo 'FILE /opt/tomcat/webapps/ROOT NOT EXIST'
                 }
 /*
                 sh 'if [ -d /opt/tomcat/webapps/ROOT ]; then sudo rm -rf /opt/tomcat/webapps/ROOT fi'
