@@ -18,15 +18,17 @@ pipeline {
             }
             steps {
 
+                sh 'tomcat_clean.sh'
+/*
                 if (fileExists('/opt/tomcat/webapps/ROOT.war')) {
                     echo 'Yes'
                 } else {
                     echo 'No'
                 }
-/*
+
                 sh 'if [ -d /opt/tomcat/webapps/ROOT ]; then sudo rm -rf /opt/tomcat/webapps/ROOT fi'
-*/
                 sh 'if [ -f /opt/tomcat/webapps/ROOT.war ]; then sudo rm -f /opt/tomcat/webapps/ROOT.war fi'
+/*
             }    
         }
 	    stage("Gradle build") {
