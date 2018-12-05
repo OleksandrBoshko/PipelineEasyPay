@@ -42,7 +42,7 @@ pipeline {
                 sh 'gradle clean buil -x test'
 	        }    
 	    } 
-        stage("One big stage") {
+        stage("Drop database") {
             agent {
                 node {
                     label 'master'
@@ -51,10 +51,46 @@ pipeline {
             steps {
                 sh "sudo service postgresql reload"
                 sh "sudo -u postgres psql postgres -c 'DROP DATABASE easypay_db;'"
+            }
+        }
+        stage("Tomcat .war") {
+            agent {
+                node {
+                    label 'master'
+                }
+            }
+            steps {
                 sh "sudo mv /var/lib/jenkins/workspace/PipelineEasyPay_master/build/libs/PipelineEasyPay_master-1.0-SNAPSHOT.war /opt/tomcat/webapps/ROOT.war"
+            }
+        }
+        stage("Create database") {
+            agent {
+                node {
+                    label 'master'
+                }
+            }
+            steps {
                 sh "sudo -u postgres psql postgres -c 'CREATE DATABASE easypay_db;'"
                 sh "sudo -u postgres psql postgres -c 'GRANT ALL PRIVILEGES ON DATABASE easypay_db TO postgres;'"
+            }
+        }
+        stage("Restore database") {
+            agent {
+                node {
+                    label 'master'
+                }
+            }
+            steps {
                 sh "sudo -u postgres psql easypay_db < /var/lib/jenkins/workspace/PipelineEasyPay_master/2.sql"
+            }
+        }
+        stage("Tomcat restart") {
+            agent {
+                node {
+                    label 'master'
+                }
+            }
+            steps {
                 sh "sudo systemctl restart tomcat"
             }
         }
