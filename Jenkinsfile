@@ -107,6 +107,8 @@ pipeline {
             steps {
                 sh "sudo systemctl restart tomcat"
             }
-        }
+            always {
+                deleteDir()
+            }
     }
 }
