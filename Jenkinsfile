@@ -110,5 +110,6 @@ pipeline {
             always {
                 deleteDir()
             }
+        }
     }
 }
