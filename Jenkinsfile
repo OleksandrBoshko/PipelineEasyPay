@@ -18,7 +18,7 @@ pipeline {
             }
             steps {
 
-                if (fileExists('/opt/tomcat/webapps/ROOT')) {
+                if (fileExists('/opt/tomcat/webapps/ROOT.war')) {
                     echo 'Yes'
                 } else {
                     echo 'No'
