@@ -12,6 +12,7 @@ pipeline {
                 checkout scm
             }
         }
+/*
         stage("Tomcat clean") {
             agent {
                 node {
@@ -21,7 +22,7 @@ pipeline {
             steps {
 
                 sh './tomcat_clean.sh'
-/*
+
                 if (fileExists('/opt/tomcat/webapps/ROOT.war')) {
                     echo 'Yes'
                 } else {
@@ -30,7 +31,7 @@ pipeline {
 
                 sh 'if [ -d /opt/tomcat/webapps/ROOT ]; then sudo rm -rf /opt/tomcat/webapps/ROOT fi'
                 sh 'if [ -f /opt/tomcat/webapps/ROOT.war ]; then sudo rm -f /opt/tomcat/webapps/ROOT.war fi'
-*/
+
             }    
         }
 	    stage("Gradle build") {
@@ -97,7 +98,7 @@ pipeline {
             }
         }
     }
-
+*/
     post {
                 failure {
                     mail subject: "APP WAS NOT DEPLOYED",
