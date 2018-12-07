@@ -18,7 +18,7 @@ pipeline {
         }
 	stage("Gradle build") {
 	    steps {
-		sh 'cd /var/lib/jenkins/workspace/PipelineEasyPay_master@tmp'
+		sh 'cd /var/lib/jenkins/workspace/PipelineEasyPay_master'
                 sh 'gradle clean build -x test'
 	    }    
 	} 
