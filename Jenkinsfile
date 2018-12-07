@@ -23,8 +23,7 @@ pipeline {
 	}  
 	stage("Drop database") {
             steps {
-                sh "sudo service postgresql reload"
-                sh "sudo -u postgres psql postgres -c 'DROP DATABASE easypay_db;'"
+		sh './drop_db.sh'
             }
         }    
 /*	stage("Tomcat .war") {
