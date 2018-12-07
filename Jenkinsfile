@@ -9,7 +9,7 @@ pipeline {
             }
         }
 	
-	    
+/*	    
 	    
     }    	
     post {
@@ -27,7 +27,7 @@ pipeline {
                 deleteDir()
                 }
         }
-    
+    */
 }
 
 /*
