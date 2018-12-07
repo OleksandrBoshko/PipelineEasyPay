@@ -22,9 +22,9 @@ pipeline {
                     label 'master'
                 }
             }
-	        steps {
+	      /* steps {
                 sh 'gradle clean build -x test'
-	        }    
+	        } */   
 	}
 	    
 	    
