@@ -13,7 +13,16 @@ pipeline {
                 sh 'sudo ./tomcat_clean.sh'
             }    
         }
-	
+	stage("Gradle build") {
+            agent {
+                node {
+                    label 'master'
+                }
+            }
+	        steps {
+                sh 'sudo gradle clean build -x test'
+	        }    
+	}
 	    
 	    
     }    	
