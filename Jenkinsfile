@@ -23,7 +23,7 @@ pipeline {
 	}  
 	stage("Drop database") {
             steps {
-		sh './drop_db.sh'
+		sh 'sudo ./drop_db.sh'
             }
         }    
 /*	stage("Tomcat .war") {
