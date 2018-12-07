@@ -21,7 +21,12 @@ pipeline {
                 sh 'gradle clean build -x test'
 	    }    
 	}  
-	    
+	stage("Drop database") {
+            steps {
+                sh "sudo service postgresql reload"
+                sh "sudo -u postgres psql postgres -c 'DROP DATABASE easypay_db;'"
+            }
+        }    
 	    
     }    	
     post {
