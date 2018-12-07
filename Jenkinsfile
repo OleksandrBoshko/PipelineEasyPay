@@ -1,4 +1,37 @@
 pipeline {
+    agent {
+        label 'master'  
+    }
+    stages {
+        stage("SCM") {
+            steps {
+                checkout scm
+            }
+        }
+	
+	    
+	    
+    }    	
+    post {
+        failure {
+                mail subject: "APP WAS NOT DEPLOYED",
+                    body: "FAILURE",
+                    to: 'who@gmail.com'
+            }
+            success {
+                mail subject: "APP WAS DEPLOYED",
+                    body: "OK",
+                    to: 'who@gmail.com'
+            }                
+            always {
+                deleteDir()
+                }
+        }
+    
+}
+
+/*
+pipeline {
     agent none
 
     stages {
@@ -12,7 +45,7 @@ pipeline {
                 checkout scm
             }
         }
-/*
+
         stage("Tomcat clean") {
             agent {
                 node {
@@ -98,7 +131,7 @@ pipeline {
             }
         }
     }
-*/
+
     post {
                 failure {
                     mail subject: "APP WAS NOT DEPLOYED",
@@ -116,3 +149,4 @@ pipeline {
     }
     }
 }
+*/
