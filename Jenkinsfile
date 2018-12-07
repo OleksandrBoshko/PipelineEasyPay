@@ -9,10 +9,10 @@ pipeline {
             }
         }
 	
-/*	    
+	    
 	    
     }    	
-    post {
+  /*  post {
         failure {
                 mail subject: "APP WAS NOT DEPLOYED",
                     body: "FAILURE",
