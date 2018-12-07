@@ -10,7 +10,7 @@ pipeline {
         }
 	stage("Tomcat clean") {
             steps {
-                sh './tomcat_clean.sh'
+                sh 'sudo ./tomcat_clean.sh'
             }    
         }
 	
