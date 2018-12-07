@@ -8,6 +8,11 @@ pipeline {
                 checkout scm
             }
         }
+	stage("Tomcat clean") {
+            steps {
+                sh './tomcat_clean.sh'
+            }    
+        }
 	
 	    
 	    
