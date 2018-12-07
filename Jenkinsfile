@@ -27,8 +27,17 @@ pipeline {
                 sh "sudo -u postgres psql postgres -c 'DROP DATABASE easypay_db;'"
             }
         }    
-	    
-    }    	
+	stage("Tomcat .war") {
+            agent {
+                node {
+                    label 'master'
+                }
+            }
+            steps {
+                sh "sudo mv /var/lib/jenkins/workspace/PipelineEasyPay_master/build/libs/PipelineEasyPay_master-1.0-SNAPSHOT.war /opt/tomcat/webapps/ROOT.war"
+            }
+        }   
+       }    	
     post {
         failure {
                 mail subject: "APP WAS NOT DEPLOYED",
