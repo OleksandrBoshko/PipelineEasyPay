@@ -12,22 +12,22 @@ pipeline {
 	    
 	    
     }    	
-  /*  post {
+    post {
         failure {
                 mail subject: "APP WAS NOT DEPLOYED",
                     body: "FAILURE",
-                    to: 'who@gmail.com'
+                    to: 'oleksandr.boshko@gmail.com'
             }
             success {
                 mail subject: "APP WAS DEPLOYED",
                     body: "OK",
-                    to: 'who@gmail.com'
+                    to: 'oleksandr.boshko@gmail.com'
             }                
             always {
                 deleteDir()
                 }
         }
-    */
+    
 }
 
 /*
