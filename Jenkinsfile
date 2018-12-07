@@ -27,16 +27,11 @@ pipeline {
                 sh "sudo -u postgres psql postgres -c 'DROP DATABASE easypay_db;'"
             }
         }    
-	stage("Tomcat .war") {
-            agent {
-                node {
-                    label 'master'
-                }
-            }
+/*	stage("Tomcat .war") {
             steps {
 		    sh "sudo mv ${env.WORKSPACE}/PipelineEasyPay_master-1.0-SNAPSHOT.war /opt/tomcat/webapps/ROOT.war"
             }
-        }   
+        }  */ 
        }    	
     post {
         failure {
