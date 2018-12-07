@@ -17,11 +17,6 @@ pipeline {
             }    
         }
 	stage("Gradle build") {
-            agent {
-                node {
-                    label 'master'
-                }
-            }
 	    steps {
                 sh 'gradle clean build -x test'
 	    }    
