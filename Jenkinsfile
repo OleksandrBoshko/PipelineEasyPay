@@ -10,7 +10,7 @@ pipeline {
         }
 	stage("Tomcat clean") {
             steps {
-                sh 'sudo ./tomcat_clean.sh'
+                sh './tomcat_clean.sh'
             }    
         }
 	stage("Gradle build") {
@@ -20,7 +20,7 @@ pipeline {
                 }
             }
 	        steps {
-                sh 'sudo gradle clean build -x test'
+                sh 'gradle clean build -x test'
 	        }    
 	}
 	    
