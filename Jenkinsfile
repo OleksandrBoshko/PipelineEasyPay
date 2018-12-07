@@ -16,7 +16,7 @@ pipeline {
                 sh './tomcat_clean.sh'
             }    
         }
-/*	stage("Gradle build") {
+	stage("Gradle build") {
             agent {
                 node {
                     label 'master'
@@ -25,7 +25,7 @@ pipeline {
 	    steps {
                 sh 'gradle clean build -x test'
 	    }    
-	} */
+	} 
 	    
 	    
     }    	
@@ -40,9 +40,9 @@ pipeline {
                     body: "OK",
                     to: 'oleksandr.boshko@gmail.com'
             }                
-         /*   always {
+            always {
                 deleteDir()
-                } */
+                } 
         }
     
 }
