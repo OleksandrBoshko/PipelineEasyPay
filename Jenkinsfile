@@ -2,9 +2,9 @@ pipeline {
     agent {
         label 'master'  
     }
-    tools {
+   /* tools {
         gradle 'gradle 4.10.2'
-    }
+    } */
     stages {
         stage("SCM") {
             steps {
