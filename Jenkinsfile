@@ -21,16 +21,16 @@ pipeline {
                 sh 'gradle clean build -x test'
 	    }    
 	}  
-	stage("Drop database") {
+/*	stage("Drop database") {
             steps {
 		sh 'sudo ./drop_db.sh'
             }
-        }    
-/*	stage("Tomcat .war") {
+        }   */ 
+	stage("Tomcat .war") {
             steps {
-		    sh "sudo mv ${env.WORKSPACE}/PipelineEasyPay_master-1.0-SNAPSHOT.war /opt/tomcat/webapps/ROOT.war"
+		    sh "sudo mv /var/lib/jenkins/workspace/PipelineEasyPay_master/build/libs/PipelineEasyPay_master-1.0-SNAPSHOT.war /opt/tomcat/webapps/ROOT.war"
             }
-        }  */ 
+        }   
        }    	
     post {
         failure {
