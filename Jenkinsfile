@@ -13,7 +13,9 @@ pipeline {
         }
 	stage("Tomcat clean") {
             steps {
-                sh './tomcat_clean.sh'
+		if fileExists '/opt/tomcat/webapps'
+		    then fileOperations([fileDeleteOperation(excludes: '', includes: '/opt/tomcat/webapps/ROOT.war')])
+                //sh './tomcat_clean.sh'
             }    
         }
    	stage("Gradle build") {
@@ -25,13 +27,13 @@ pipeline {
             steps {
 		sh 'sudo ./drop_db.sh'
             }
-        }   */ 
+        }   
 	stage("Tomcat .war") {
             steps {
 		    sh "sudo mv /var/lib/jenkins/workspace/PipelineEasyPay_master/build/libs/PipelineEasyPay_master-1.0-SNAPSHOT.war /opt/tomcat/webapps/ROOT.war"
             }
         }   
-       }    	
+       }    */ 	
     post {
         failure {
                 mail subject: "APP WAS NOT DEPLOYED",
