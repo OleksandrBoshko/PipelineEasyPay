@@ -43,9 +43,9 @@ pipeline {
                     body: "OK",
                     to: 'oleksandr.boshko@gmail.com'
             }                
-            always {
+        /*    always {
                 deleteDir()
-                } 
+                } */
         }
     
 }
