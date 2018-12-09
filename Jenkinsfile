@@ -13,8 +13,9 @@ pipeline {
         }
 	stage("Tomcat clean") {
             steps {
-		if fileExists '/opt/tomcat/webapps'
-		    then fileOperations([fileDeleteOperation(excludes: '', includes: '/opt/tomcat/webapps/ROOT.war')])
+		    if (fileExists '/opt/tomcat/webapps') {
+		    fileOperations([fileDeleteOperation(excludes: '', includes: '/opt/tomcat/webapps/ROOT.war')])
+		    }
                 //sh './tomcat_clean.sh'
             }    
         }
