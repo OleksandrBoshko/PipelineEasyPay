@@ -13,10 +13,10 @@ pipeline {
         }
 	stage("Tomcat clean") {
             steps {
-		    if (fileExists '/opt/tomcat/webapps') {
-		    fileOperations([fileDeleteOperation(excludes: '', includes: '/opt/tomcat/webapps/ROOT.war')])
-		    }
-                //sh './tomcat_clean.sh'
+		    //if (fileExists '/opt/tomcat/webapps') {
+		    //fileOperations([fileDeleteOperation(excludes: '', includes: '/opt/tomcat/webapps/ROOT.war')])
+		    //}
+                sh './tomcat_clean.sh'
             }    
         }
    	stage("Gradle build") {
