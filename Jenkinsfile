@@ -19,12 +19,12 @@ pipeline {
                 sh './tomcat_clean.sh'
             }    
         }
-   	stage("Gradle build") {
+  /* 	stage("Gradle build") {
 	    steps {
                 sh 'gradle clean build -x test'
 	    }    
 	}  
-/*	stage("Drop database") {
+	stage("Drop database") {
             steps {
 		sh 'sudo ./drop_db.sh'
             }
@@ -46,9 +46,9 @@ pipeline {
                     body: "OK",
                     to: 'oleksandr.boshko@gmail.com'
             }                
-            always {
-                deleteDir()
-                } 
+            //always {
+              //  deleteDir()
+                //} 
         }
     
 }
