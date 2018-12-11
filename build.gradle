@@ -172,9 +172,9 @@ liquibase {
         main {
             changeLogFile 'src/main/db/changelog.xml'
 //            changeLogFile 'src/main/db/scripts/scheme.xml'
-            url 'jdbc:postgresql://ec2-54-217-214-201.eu-west-1.compute.amazonaws.com:5432/easypay_db'
+            url 'jdbc:postgresql://boshko.cxrcfe8g2viy.eu-central-1.rds.amazonaws.com:5432/easypay_db'
             username 'postgres'
-            password 'root'
+            password 'rootroot'
 //            url 'jdbc:postgresql://ec2-54-217-214-201.eu-west-1.compute.amazonaws.com:5432/dcpto4bvh9o88o?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory'
 //            username 'vqskzrtytxotji'
 //            password '7708ff7f89fa59704858ac2d2401c963f0732f5d241be131fa197b42ee8f73fd'
