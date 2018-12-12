@@ -37,11 +37,13 @@ pipeline {
        }     	
     post {
         failure {
+		emailextrecipients([upstreamDevelopers()])
                 mail subject: "APP WAS NOT DEPLOYED",
                     body: "FAILURE",
                     to: 'oleksandr.boshko@gmail.com'
             }
             success {
+		emailextrecipients([upstreamDevelopers()])
                 mail subject: "APP WAS DEPLOYED",
                     body: "OK",
                     to: 'oleksandr.boshko@gmail.com'
