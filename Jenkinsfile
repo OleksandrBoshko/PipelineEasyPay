@@ -13,7 +13,7 @@ pipeline {
         }  */
 	stage("Tomcat clean") {
             steps {
-		    if (fileExists ('/opt/tomcat/webapps/ROOT')) {
+		    if (fileExists ('/opt/tomcat/webapps/ROOT.war')) {
 			fileOperations([fileDeleteOperation(excludes: '', includes: '/opt/tomcat/webapps/ROOT')])
 		    } else {
 			sh 'echo "first build"'
