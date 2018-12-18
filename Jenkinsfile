@@ -16,7 +16,7 @@ pipeline {
                 sh 'gradle clean build -x test'
 	    }    
 	}    
-	stage("Tomcat .war") {
+	stage("Delivery") {
             steps {
 		    sh 'cp '+"${env.WORKSPACE}"+"/build/libs/PipelineEasyPay_master-1.0-SNAPSHOT.war "+'/opt/tomcat/webapps/ROOT.war'
             }
