@@ -16,8 +16,8 @@ pipeline {
 		    if (fileExists ('/opt/tomcat/webapps/ROOT')) {
 			fileOperations([fileDeleteOperation(excludes: '', includes: '/opt/tomcat/webapps/ROOT')])
 		    } else {
-		
-						}
+			sh 'echo "first build"'
+		    }
 		    
 		    /*
 		    if (fileExists '/opt/tomcat/webapps') {
