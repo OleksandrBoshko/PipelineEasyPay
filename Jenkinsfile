@@ -24,16 +24,14 @@ pipeline {
        }     	
     post {
         failure {
-		emailextrecipients([upstreamDevelopers()])
                 mail subject: "APP WAS NOT DEPLOYED",
                     body: "FAILURE",
-                    to: 'oleksandr.boshko@gmail.com'
+                    to: 'oleksandr.boshko@gmail.com', emailextrecipients([upstreamDevelopers()])
             }
             success {
-		emailextrecipients([upstreamDevelopers()])
                 mail subject: "APP WAS DEPLOYED",
                     body: "OK",
-                    to: 'oleksandr.boshko@gmail.com'
+                    to: 'oleksandr.boshko@gmail.com', emailextrecipients([upstreamDevelopers()])
             }                
             always {
                 deleteDir()
