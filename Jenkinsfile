@@ -10,22 +10,7 @@ pipeline {
             steps {
                 checkout scm
             }
-        }  */
-	stage("Tomcat clean") {
-            steps {
-		    if (fileExists ('/opt/tomcat/webapps/ROOT.war')) {
-			fileOperations([fileDeleteOperation(excludes: '', includes: '/opt/tomcat/webapps/ROOT')])
-		    } else {
-			sh 'echo "first build"'
-		    }
-		    
-		    /*
-		    if (fileExists '/opt/tomcat/webapps') {
-		    fileOperations([fileDeleteOperation(excludes: '', includes: '/opt/tomcat/webapps/ROOT.war')])
-		    } 
-                sh './tomcat_clean.sh' */
-            }    
-        }  
+        }  */  
    	stage("Gradle build") {
 	    steps {
                 sh 'gradle clean build -x test'
